@@ -18,13 +18,15 @@ jobs:
         version: 'latest'
 
     - name: Authenticate to Google Cloud
-      run: echo "${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}" > "${HOME}/gcloud-key.json" && gcloud auth activate-service-account --key-file="${HOME}/gcloud-key.json"
-
-    - name: Set up BigQuery Client
       run: |
-        gcloud config set project striped-torus-445510-c9
-        gcloud config set account marijnvanaalst@gmail.com
+        echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}" > "${HOME}/gcloud-key.json"
+        cat "${HOME}/gcloud-key.json"  # Debugging: Print the file to check its contents (remove this line later)
 
-    - name: Run BigQuery Query
-      run: |
-        bq query --use_legacy_sql=false 'SELECT * FROM `football_stats.bundesliga_fixtures_2024_2025` LIMIT 10;'
+    # - name: Set up BigQuery Client
+    #   run: |
+    #     gcloud config set project striped-torus-445510-c9
+    #     gcloud config set account marijnvanaalst@gmail.com
+
+    # - name: Run BigQuery Query
+    #   run: |
+    #     bq query --use_legacy_sql=false 'SELECT * FROM `football_stats.bundesliga_fixtures_2024_2025` LIMIT 10;'
