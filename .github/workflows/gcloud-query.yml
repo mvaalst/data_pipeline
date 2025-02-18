@@ -18,7 +18,7 @@ jobs:
         version: 'latest'
 
     - name: Authenticate to Google Cloud
-      run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}" > "${HOME}/gcloud-key.json" && gcloud auth activate-service-account --key-file="${HOME}/gcloud-key.json"
+      run: echo "${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}" > "${HOME}/gcloud-key.json" && gcloud auth activate-service-account --key-file="${HOME}/gcloud-key.json"
 
     - name: Set up BigQuery Client
       run: |
