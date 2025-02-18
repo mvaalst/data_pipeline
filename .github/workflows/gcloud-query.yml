@@ -19,7 +19,7 @@ jobs:
 
     - name: Authenticate to Google Cloud
       run: |
-        echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}" > "${HOME}/gcloud-key.json"
+        echo "${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}" > "${HOME}/gcloud-key.json"
         cat "${HOME}/gcloud-key.json"  # Debugging: Print the file to check its contents (remove this line later)
 
     # - name: Set up BigQuery Client
