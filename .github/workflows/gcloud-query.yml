@@ -39,15 +39,4 @@ jobs:
         
         # Initialize BigQuery client
         client = bigquery.Client()
-        
-        # Set the query string
-        query = 'SELECT * FROM `striped-torus-445510-c9.football_stats.bundesliga_fixtures_2024_2025`'
-        
-        # Run the query
-        query_job = client.query(query)
-        
-        # Fetch and print the results
-        results = query_job.result()
-        for row in results:
-            print(dict(row))
         "
