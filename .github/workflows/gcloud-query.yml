@@ -28,4 +28,26 @@ jobs:
         pip install google-cloud-bigquery google-auth
 
     - name: Authenticate to Google Cloud
-      run: echo "${{ secrets.GCP_CREDENTIALS }}"
+      run: |
+        echo "${{ secrets.GCP_CREDENTIALS }}" > "${{ github.workspace }}/gha-creds.json"
+        export GOOGLE_APPLICATION_CREDENTIALS="${{ github.workspace }}/gha-creds.json"
+
+    - name: Query BigQuery
+      run: |
+        python -c "
+        from google.cloud import bigquery
+        
+        # Initialize BigQuery client
+        client = bigquery.Client()
+        
+        # Set the query string
+        query = 'SELECT * FROM `striped-torus-445510-c9.football_stats.bundesliga_fixtures_2024_2025` LIMIT 10;'
+        
+        # Run the query
+        query_job = client.query(query)
+        
+        # Fetch and print the results
+        results = query_job.result()
+        for row in results:
+            print(dict(row))
+        "
