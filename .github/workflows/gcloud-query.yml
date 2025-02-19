@@ -28,7 +28,7 @@ jobs:
         pip install google-cloud-bigquery google-auth
 
     - name: Authenticate to Google Cloud
-      run: echo "${{ secrets.google_cloud_credentials }}" > $HOME/gcloud-credentials.json
+      run: echo "${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}" > $HOME/gcloud-credentials.json
 
     - name: Initialize BigQuery Client
       run: |
