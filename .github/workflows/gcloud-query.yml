@@ -34,5 +34,5 @@ jobs:
       run: |
         python -c "
         import os
-        print("File path: ", os.path.expanduser('$HOME/gcloud-credentials.json'))
+        print("File path: ", os.path.expanduser('$HOME/gcloud-credentials.json'))"
         "
