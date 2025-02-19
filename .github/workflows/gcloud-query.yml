@@ -31,21 +31,3 @@ jobs:
       run: |
         echo "${{ secrets.GCP_CREDENTIALS }}" > "${{ github.workspace }}/gha-creds.json"
         export GOOGLE_APPLICATION_CREDENTIALS="${{ github.workspace }}/gha-creds.json"
-
-    - name: Query BigQuery
-      run: |
-        python -c "
-        from google.cloud import bigquery
-        import pandas
-        
-        # Initialize BigQuery client
-        client = bigquery.Client(project='striped-torus445510-c9')
-
-        query = ("""SELECT * FROM `striped-torus-445510-c9.football_stats.bundesliga_fixtures_2024_2025`""")
-
-        df = client.query(query).to_dataframe()
-
-        print(df.head())
-        
-        "
-
