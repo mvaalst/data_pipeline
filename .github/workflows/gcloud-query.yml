@@ -41,10 +41,7 @@ jobs:
         # Initialize BigQuery client
         client = bigquery.Client(project='striped-torus445510-c9')
 
-        query = ("""
-        SELECT *
-        FROM `striped-torus-445510-c9.football_stats.bundesliga_fixtures_2024_2025`
-        """)
+        query = ("""SELECT * FROM `striped-torus-445510-c9.football_stats.bundesliga_fixtures_2024_2025`""")
 
         df = client.query(query).to_dataframe()
 
