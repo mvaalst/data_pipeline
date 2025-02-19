@@ -15,7 +15,7 @@ jobs:
     - name: Log in to Google Cloud
       uses: 'google-github-actions/auth@v2'
       with:
-        credentials_json: '${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}'
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
         
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -28,4 +28,4 @@ jobs:
         pip install google-cloud-bigquery google-auth
 
     - name: Authenticate to Google Cloud
-      run: echo "${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}"
+      run: echo "${{ secrets.GCP_CREDENTIALS }}"
