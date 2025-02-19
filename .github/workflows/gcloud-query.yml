@@ -33,18 +33,6 @@ jobs:
     - name: Initialize BigQuery Client
       run: |
         python -c "
-        from google.cloud import bigquery
-        from google.oauth2 import service_account
-
-        # Path to the credentials file
-        credentials = service_account.Credentials.from_service_account_file('$HOME/gcloud-credentials.json')
-
-        # Initialize BigQuery client
-        client = bigquery.Client(credentials=credentials, project=credentials.project_id)
-
-        # Example of listing datasets in the project
-        datasets = client.list_datasets()
-        print('Datasets in project:')
-        for dataset in datasets:
-            print(dataset.dataset_id)
+        import os
+        print("File path: ", os.path.expanduser('$HOME/gcloud-credentials.json'))
         "
