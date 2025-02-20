@@ -39,3 +39,7 @@ jobs:
     - name: Load the groups data in BigQuery
       run: |
         python groups.py
+
+    - name: Load the events data in BigQuery
+      run: |
+        python events.py
