@@ -43,3 +43,7 @@ jobs:
     - name: Load the events data in BigQuery
       run: |
         python events.py
+    
+    - name: Load the users data in BigQuery
+      run: |
+        python users.py
