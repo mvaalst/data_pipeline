@@ -11,7 +11,7 @@ dataframe = pd.DataFrame(json_data)
 
 # Upload the dataframe to BigQuery
 client = bigquery.Client()
-table_id = 'striped-torus445510-c9.raw_data.venues'
+table_id = 'striped-torus-445510-c9.raw_data.venues'
 
 job = client.load_table_from_dataframe(dataframe, table_id, job_config=bigquery.LoadJobConfig(
                                         write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE))
