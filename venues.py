@@ -3,7 +3,7 @@ import json
 from google.cloud import bigquery
 
 # Read the JSON file and load it into a dataframe
-file_path = '.data/venues.json'
+file_path = 'data/venues.json'
 with open(file_path, 'r') as file:
     json_data = json.load(file)
 
