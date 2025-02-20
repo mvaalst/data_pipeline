@@ -1,4 +1,4 @@
-name: Google Cloud Query
+name: Data pipeline for loading json files in BigQuery tables
 
 on:
   push:
@@ -32,6 +32,10 @@ jobs:
         echo "${{ secrets.GCP_CREDENTIALS }}" > "${{ github.workspace }}/gha-creds.json"
         export GOOGLE_APPLICATION_CREDENTIALS="${{ github.workspace }}/gha-creds.json"
     
-    - name: Run the query
+    - name: Load the venues data in BigQuery
       run: |
         python venues.py
+
+    - name: Load the groups data in BigQuery
+      run: |
+        python groups.py
