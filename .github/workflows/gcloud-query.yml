@@ -34,4 +34,4 @@ jobs:
     
     - name: Run the query
       run: |
-        python script.py
+        python venues.py
